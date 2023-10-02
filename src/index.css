@@ -28,7 +28,7 @@ footer{
 }
 
 .App {
-  overflow: hidden;
+  /* overflow: hidden; */
   display: grid;
   grid-template-rows: 64px auto;
   min-height: 100svh;
@@ -83,11 +83,11 @@ footer{
   display: flex;
   width: 300px;
   height: 40px;
- 
   align-items: center;
   border: 2px solid var(--github-border-color);
   border-radius: 6px;
   overflow: hidden;
+  z-index: 9999;
 }
 
 .person-icon{
