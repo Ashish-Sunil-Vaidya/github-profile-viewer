@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-
 import format from "date-fns/format";
 import { GoIssueOpened, GoLaw, GoRepoForked, GoStar } from "react-icons/go";
 

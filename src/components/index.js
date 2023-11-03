@@ -1,6 +1,6 @@
-import ProfileSidebar from './ProfileSidebar';
-import RepositoryContainer from './RepositoryContainer';
-import WelcomePage from './WelcomePage';
+import ProfileSidebar from './profilesidebar';
+import RepositoryContainer from './repositorycontainer';
+import WelcomePage from './welcomepage';
 
 
 export { ProfileSidebar, RepositoryContainer, WelcomePage };
