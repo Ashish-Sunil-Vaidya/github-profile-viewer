@@ -1,6 +1,6 @@
 import { FaGithub } from "react-icons/fa";
 import PropTypes from "prop-types";
-import "./welcomepage.css";
+
 
 function WelcomePage(props) {
   const handleSubmit = (e) => {

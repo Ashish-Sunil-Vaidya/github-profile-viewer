@@ -1,7 +1,5 @@
 import axios from "axios";
 
-
-
 export const getUser = async (username,token) => {
     const response = await axios.get(`https://api.github.com/users/${username}`,{
             headers: {

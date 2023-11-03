@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { GoSearch, GoRepo, GoPersonFill, GoX } from "react-icons/go";
-import ProfileSidebar from "./components/profilesidebar";
-import RepositoryContainer from "./components/repositorycontainer";
 import { getUser, getRepos } from "../api/github";
-import WelcomePage from "./components/welcomepage";
+import {} from "./components"
+
 
 function App() {
   const [data, setData] = useState(null);
