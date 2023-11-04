@@ -30,7 +30,7 @@ function reducer(state, action) {
   }
 }
 
-export const useGithubApiReducer = () => {
+const useGithubApiReducer = () => {
   return useReducer(reducer, initialState);
 };
 
