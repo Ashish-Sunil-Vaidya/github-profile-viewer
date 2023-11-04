@@ -6,7 +6,7 @@ import useGithubApiReducer, {
   SET_REPO_DATA,
   RESET_ERROR,
   SET_TOKEN,
-} from "./githubApiReducer";
+} from "./GithubApiReducer";
 
 import { getUser, getRepos } from "../../api/github";
 export const GithubApiContext = createContext();
