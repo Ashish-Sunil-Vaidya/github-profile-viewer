@@ -10,8 +10,7 @@ const initialState = {
 export const SET_DATA = "SET_DATA";
 export const SET_REPO_DATA = "SET_REPO_DATA";
 export const SET_TOKEN = "SET_TOKEN";
-export const SET_ERROR = "SET_ERROR";
-export const RESET_ERROR = "RESET_ERROR";
+
 
 function reducer(state, action) {
   switch (action.type) {
@@ -21,10 +20,6 @@ function reducer(state, action) {
       return { ...state, repoData: action.payload };
     case SET_TOKEN:
       return { ...state, token: action.payload };
-    case SET_ERROR:
-      return { ...state, error: action.payload };
-    case RESET_ERROR:
-      return { ...state, error: null };
     default:
       return state;
   }

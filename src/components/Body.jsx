@@ -1,36 +1,48 @@
-import { useContext } from "react";
+import { motion, useAnimation, AnimatePresence } from "framer-motion";
+import { useContext, useEffect, useState } from "react";
 import { GithubApiContext } from "../context/GithubApiContext";
-import { MemoizedGoX } from "../../public/memoizedIcons";
+// import { MemoizedGoX } from "../../public/memoizedIcons";
 import ProfileSidebar from "./profilesidebar";
 import RepositorySection from "./RepositorySection";
 import WelcomePage from "./welcomepage";
+import LoadingModal from "./LoadingModal";
+
 
 function Body() {
-  const { userData, resetError, token, error, repoData } =
+  const { userData, token, repoData } =
     useContext(GithubApiContext);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (userData && token) {
+      setIsLoading(true);
+      controls.set("hidden");
+      controls.start("visible").then(() => setIsLoading(false));
+    }
+  }, [userData, token, controls]);
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 2 } },
+  };
+
   return (
     <main className="app-main">
-      {error && (
-        <div className="error">
-          <p className="error-message">{error}</p>
-          {/* <div className="app-header">{error.type}</div>
-              <div className="app-content">{error.message}</div> */}
-          <button onClick={resetError}>
-            <MemoizedGoX />
-          </button>
-        </div>
-      )}
-      {/* {console.log(
-            "=== userData && token App.jsx [53] ===",
-            userData && token ? true : false,
-            userData,
-            token
-          )} */}
+      <AnimatePresence>
+        {isLoading && <LoadingModal />}
+      </AnimatePresence>
       {userData && token ? (
-        <div className="app-main-container">
+        <motion.div
+          className="app-main-container"
+          initial="hidden"
+          animate={controls}
+          variants={fadeIn}
+        >
           {userData && <ProfileSidebar />}
           {repoData && <RepositorySection />}
-        </div>
+        </motion.div>
       ) : (
         <WelcomePage />
       )}
