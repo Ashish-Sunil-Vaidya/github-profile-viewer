@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { GithubApiContext } from "../context/GithubApiContext";
 import { MemoizedGoX } from "../../public/memoizedIcons";
-import ProfileSidebar from "./ProfileSidebar";
-import RepositorySection from "./RepositorySection";
+import ProfileSidebar from "./profilesidebar";
+import RepositorySection from "./repositorysection";
 import WelcomePage from "./welcomepage";
 
 function Body() {
