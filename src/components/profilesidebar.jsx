@@ -1,48 +1,51 @@
-import PropTypes from "prop-types";
-
+/* eslint-disable react-refresh/only-export-components */
+import { useContext } from "react";
+import { GithubApiContext } from "../context/GithubApiContext";
 import {
-  GoLocation,
-  GoMail,
-  GoLink,
-  GoOrganization,
-  GoPeople,
-} from "react-icons/go";
-function ProfileSidebar(props) {
+  MemoizedGoPeople,
+  MemoizedGoOrganization,
+  MemoizedGoMail,
+  MemoizedGoLink,
+  MemoizedGoLocation,
+} from "../../public/memoizedIcons";
+function ProfileSidebar() {
+  const { userData } = useContext(GithubApiContext);
+  // console.log('=== userData profilesidebar.jsx [13] ===', userData);
   return (
     <div className="sidebar-container">
-      <img className="avatar" src={props.avatar} alt="" />
+      <img className="avatar" src={userData.avatar_url} alt="" />
       <div>
-        <h1 className="name">{props.name}</h1>
-        <span className="login">{props.login}</span>
+        <h1 className="name">{userData.name}</h1>
+        <span className="login">{userData.login}</span>
       </div>
-      <div className="bio">{props.bio}</div>
+      <div className="bio">{userData.bio}</div>
       <span className="followers">
-        <GoPeople />
-        <strong>{props.followers}</strong> <span>followers</span>{" "}
-        <strong>• {props.following} </strong>
+        <MemoizedGoPeople />
+        <strong>{userData.followers}</strong> <span>followers</span>{" "}
+        <strong>• {userData.following} </strong>
         <span>following</span>
       </span>
       <ul className="details">
-        {props.company && (
+        {userData.company && (
           <li className="company">
-            <GoOrganization /> {props.company}
+            <MemoizedGoOrganization /> {userData.company}
           </li>
         )}
-        {props.location && (
+        {userData.location && (
           <li className="location">
-            <GoLocation /> {props.location}
+            <MemoizedGoLocation /> {userData.location}
           </li>
         )}
-        {props.email && (
+        {userData.email && (
           <li className="email">
-            <GoMail /> {props.email}
+            <MemoizedGoMail /> {userData.email}
           </li>
         )}
-        {props.blog && (
+        {userData.blog && (
           <li className="blog">
-            <GoLink />{" "}
-            <a href={props.blog} target="_blank" rel="noopener noreferrer">
-              {props.blog}
+            <MemoizedGoLink />{" "}
+            <a href={userData.blog} target="_blank" rel="noopener noreferrer">
+              {userData.blog}
             </a>
           </li>
         )}
@@ -50,18 +53,5 @@ function ProfileSidebar(props) {
     </div>
   );
 }
-
-ProfileSidebar.propTypes = {
-  name: PropTypes.string.isRequired,
-  login: PropTypes.string.isRequired,
-  avatar: PropTypes.string.isRequired,
-  bio: PropTypes.string,
-  followers: PropTypes.number.isRequired,
-  following: PropTypes.number.isRequired,
-  company: PropTypes.string,
-  location: PropTypes.string,
-  email: PropTypes.string,
-  blog: PropTypes.string,
-};
 
 export default ProfileSidebar;

@@ -1,23 +1,24 @@
 import { FaGithub } from "react-icons/fa";
-import PropTypes from "prop-types";
+import { useContext } from "react";
+import { GithubApiContext } from "../context/GithubApiContext";
 
-
-function WelcomePage(props) {
+function WelcomePage() {
+  const { token, setToken } = useContext(GithubApiContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     const token = e.target.elements.token.value;
-    props.setToken(token);
+    setToken(token);
     localStorage.setItem("token", token);
-    // console.log("=== token welcomepage.jsx [16] ===", props.token);
+    // console.log("=== token welcomepage.jsx [16] ===", token);
   };
 
   const handleLogout = (e) => {
     e.preventDefault();
-    props.setToken(null);
+    setToken(null);
     localStorage.removeItem("token");
   };
 
-  return !props.token ? (
+  return !token ? (
     <div className="welcome-page">
       <h1 className="welcome-title">
         <FaGithub />
@@ -78,10 +79,5 @@ function WelcomePage(props) {
     </div>
   );
 }
-
-WelcomePage.propTypes = {
-  token: PropTypes.string,
-  setToken: PropTypes.func,
-};
 
 export default WelcomePage;

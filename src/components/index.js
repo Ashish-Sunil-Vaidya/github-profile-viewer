@@ -1,6 +1,6 @@
-import ProfileSidebar from './profilesidebar';
-import RepositoryContainer from './repositorycontainer';
-import WelcomePage from './welcomepage';
 
+import Header from './Header';
+import Body from './Body';
+import Footer from './Footer';
 
-export { ProfileSidebar, RepositoryContainer, WelcomePage };
+export { Body, Header, Footer };
