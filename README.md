@@ -1,5 +1,6 @@
 
 # GitHub Profile Viewer
+![image](https://github.com/Ashish-Sunil-Vaidya/github-profile-viewer/assets/115164587/e3f7a36f-f045-405f-b7c4-842024bd7617)
 
 This project is a GitHub Profile Viewer built with React. It allows you to view GitHub profiles and repositories by entering a GitHub personal access token (PAT).
 
