@@ -1,6 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
-import {memo} from "react";
-
 function Footer() {
   return (
     <footer>
@@ -11,4 +8,4 @@ function Footer() {
   );
 }
 
-export default memo(Footer);
+export default Footer;
